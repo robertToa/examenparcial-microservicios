@@ -40,7 +40,7 @@ public class OrderServiceImplement implements OrderService {
         log.info("Verificando disponibilidad del plato via WebClient...");
         DisResponse dishResponse = menuWebClient.getDishById(request.getDishId());
         if(!dishResponse.getAvailable()){
-            throw new BusinessRuleException(
+            throw new ResourceNotFoundException(
                     "Plato con id: "+ request.getDishId() +
                             "No esta disponible "
             );
